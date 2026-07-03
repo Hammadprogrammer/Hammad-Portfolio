@@ -1,26 +1,277 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Dala Design System — "Particle cosmos on a void"
+ * Theme: dark. Void background, Bone text, single Plum Voltage accent.
+ */
+
+@theme {
+  /* Colors */
+  --color-void: #000000;
+  --color-bone: #ffffff;
+  --color-ash: #bdbdbd;
+  --color-smoke: #9a9a9a;
+  --color-plum-voltage: #8052ff;
+  --color-amber-spark: #ffb829;
+  --color-lichen: #15846e;
+
+  /* Semantic aliases */
+  --color-background: var(--color-void);
+  --color-foreground: var(--color-bone);
+
+  /* Typography — Font Family (Acronym → Space Grotesk, Inter fallback) */
+  --font-acronym: var(--font-space-grotesk), var(--font-inter), "Acronym",
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  --default-font-family: var(--font-acronym);
+
+  /* Typography — Type Scale (size / line-height / tracking) */
+  --text-caption: 12px;
+  --text-caption--line-height: 1.5;
+  --text-caption--letter-spacing: 0.05em;
+
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 1.5;
+  --text-body-sm--letter-spacing: 0.05em;
+
+  --text-body: 15px;
+  --text-body--line-height: 1.5;
+  --text-body--letter-spacing: 0.025em;
+
+  --text-subheading: 18px;
+  --text-subheading--line-height: 1.5;
+  --text-subheading--letter-spacing: 0.025em;
+
+  --text-heading-sm: 24px;
+  --text-heading-sm--line-height: 1.3;
+  --text-heading-sm--letter-spacing: 0.021em;
+
+  --text-heading: 36px;
+  --text-heading--line-height: 1.2;
+  --text-heading--letter-spacing: 0.021em;
+
+  --text-heading-lg: 48px;
+  --text-heading-lg--line-height: 1.1;
+  --text-heading-lg--letter-spacing: -0.04em;
+
+  --text-display: 78px;
+  --text-display--line-height: 0.9;
+  --text-display--letter-spacing: -0.04em;
+
+  --text-hero: 113px;
+  --text-hero--line-height: 0.81;
+  --text-hero--letter-spacing: -0.04em;
+
+  /* Border Radius — pill geometry (nav / cards / buttons) */
+  --radius-pill: 24px;
+
+  /* Spacing & Layout */
+  --spacing-base: 6px;
+  --spacing-element: 15px;
+  --spacing-card: 24px;
+  --spacing-section: 60px;
+
+  /* Layout container */
+  --container-page: 1200px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  background: var(--color-void);
+  color: var(--color-bone);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-acronym);
+  font-weight: 400;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Violet text selection */
+::selection {
+  background: rgba(128, 82, 255, 0.35);
+  color: #ffffff;
+}
+
+/* Hairline scrollbar — void track, violet thumb */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(128,82,255,0.4); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(128,82,255,0.65); }
+
+/* Three.js full-page canvas */
+.three-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Content above canvas */
+.page-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Lenis smooth scroll integration */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* GPU-accelerated transition helpers */
+.will-transform {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ── Void design primitives ────────────────────────────────
+ * Depth from contrast + negative space only. No shadows,
+ * gradients, glass, or elevation.
+ * ──────────────────────────────────────────────────────── */
+
+/* Hairline card — 1px white @10% on pure black */
+.card {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-pill);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.card-hover:hover {
+  border-color: rgba(128, 82, 255, 0.55);
+}
+
+/* Eyebrow / kicker */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* Amber-outlined label — used sparingly per spec */
+.label-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 184, 41, 0.5);
+  color: var(--color-amber-spark);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Availability dot — lichen accent */
+.dot-live::before {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--color-lichen);
+  margin-right: 8px;
+  vertical-align: middle;
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* Nav underline (violet), no shadow */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--color-plum-voltage);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* Custom cursor — desktop only. Hide native cursor. */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-none * { cursor: none !important; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Responsive layout grids ── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 80px;
+  align-items: center;
+}
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.feature-grid.four {
+  grid-template-columns: repeat(4, 1fr);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 32px;
+  align-items: start;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 40px;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .tech-grid { grid-template-columns: repeat(4, 1fr); }
+  .feature-grid, .feature-grid.four { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+@media (max-width: 560px) {
+  .tech-grid { grid-template-columns: repeat(3, 1fr); }
+  .feature-grid, .feature-grid.four { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
 }
