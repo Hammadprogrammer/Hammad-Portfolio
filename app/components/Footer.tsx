@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUp, GitBranch, Briefcase } from "lucide-react";
+import { ArrowUp, GitBranch, Briefcase, MessageCircle } from "lucide-react";
 
 const NAV = [
   { href: "/", label: "Home" },
@@ -14,6 +14,7 @@ const NAV = [
 const SOCIAL = [
   { label: "GitHub", href: "https://github.com/Hammadprogrammer", Icon: GitBranch },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/hammad-zahid-543a652a6/", Icon: Briefcase },
+  { label: "WhatsApp", href: "https://wa.me/923118270539", Icon: MessageCircle },
 ];
 
 export default function Footer() {
@@ -25,9 +26,9 @@ export default function Footer() {
           <div className="max-w-80">
             <Link href="/" className="mb-4 flex items-center gap-3 no-underline" data-cursor-hover>
               <div className="flex h-8 w-8 items-center justify-center rounded-pill bg-plum-voltage text-[13px] font-bold text-white">
-                HZ
+                HH
               </div>
-              <span className="text-subheading font-bold text-bone">Hammad Zahid</span>
+              <span className="text-subheading font-bold text-bone">Muhammad Hammad</span>
             </Link>
             <p className="text-body text-smoke">
               Full Stack Developer crafting fast, scalable web applications. Available for freelance &amp; full-time roles.
@@ -38,6 +39,15 @@ export default function Footer() {
               data-cursor-hover
             >
               hammadzahid221@gmail.com
+            </a>
+            <a
+              href="https://wa.me/923118270539"
+              className="mt-2 inline-block text-body font-semibold text-plum-voltage no-underline"
+              data-cursor-hover
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              +92 322 1870539
             </a>
           </div>
 
@@ -84,7 +94,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
           <span className="text-caption text-smoke">
-            © {new Date().getFullYear()} Hammad Zahid — Full Stack Developer
+            © {new Date().getFullYear()} Muhammad Hammad — Full Stack Developer
           </span>
           <motion.button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

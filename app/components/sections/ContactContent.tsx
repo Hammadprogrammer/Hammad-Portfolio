@@ -125,7 +125,7 @@ export default function ContactContent() {
                         <Label>Full Name</Label>
                         <input
                           type="text"
-                          placeholder="Muhammad Ali"
+                          placeholder="Enter your name"
                           className={fieldBase}
                           style={{ borderColor: errors.name ? "rgba(255,120,120,0.6)" : "rgba(255,255,255,0.1)" }}
                           {...register("name")}
@@ -136,7 +136,7 @@ export default function ContactContent() {
                         <Label>Email</Label>
                         <input
                           type="email"
-                          placeholder="you@example.com"
+                          placeholder="Enter your email"
                           className={fieldBase}
                           style={{ borderColor: errors.email ? "rgba(255,120,120,0.6)" : "rgba(255,255,255,0.1)" }}
                           {...register("email")}

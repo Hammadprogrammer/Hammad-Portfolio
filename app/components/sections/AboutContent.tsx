@@ -45,7 +45,7 @@ const CATEGORIES = [
 ];
 
 const EDUCATION = [
-  { title: "Bachelor's Degree", org: "Hamdard University", period: "Graduation", desc: "Completed undergraduate studies at Hamdard University, Karachi.", Icon: GraduationCap },
+  { title: "Bachelor's Degree", org: "Hamdard University", note: "sontinoe", period: "Graduation", desc: "Completed undergraduate studies at Hamdard University, Karachi.", Icon: GraduationCap },
   { title: "Full Stack Web Development", org: "Saylani Mass IT Training (SMIT)", period: "Certified", desc: "Completed a certified Full Stack Development course at Saylani, covering modern web development end to end.", Icon: Award },
 ];
 
@@ -219,12 +219,15 @@ export default function AboutContent() {
           <h2 className="mb-12 text-heading font-bold text-bone md:text-heading-lg">Learning never stops.</h2>
         </Reveal>
         <Stagger stagger={0.12} className="grid gap-6 md:grid-cols-2">
-          {EDUCATION.map(({ title, org, period, desc, Icon }) => (
+          {EDUCATION.map(({ title, org, note, period, desc, Icon }) => (
             <StaggerItem key={title}>
               <Card className="h-full p-7">
                 <Icon size={24} className="mb-4 text-lichen" />
                 <p className="mb-1 text-subheading font-bold text-bone">{title}</p>
-                <p className="mb-1 text-body-sm font-semibold text-plum-voltage">{org}</p>
+                <div className="mb-1 flex items-center justify-between">
+                  <p className="text-body-sm font-semibold text-plum-voltage">{org}</p>
+                  {note ? <span className="text-caption text-smoke">{note}</span> : null}
+                </div>
                 <p className="mb-3 text-caption text-smoke">{period}</p>
                 <p className="text-body text-ash">{desc}</p>
               </Card>
