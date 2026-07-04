@@ -118,7 +118,7 @@ export default function ProjectsContent() {
       </Section>
 
       {/* ════ GRID ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <motion.div layout className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {visible.map((p, i) => (
@@ -156,7 +156,7 @@ export default function ProjectsContent() {
                   {p.tech.slice(0, 4).map((t) => <Badge key={t}>{t}</Badge>)}
                 </div>
 
-                <span className="inline-flex items-center gap-1.5 text-caption font-bold uppercase tracking-[0.05em] text-plum-voltage">
+                <span className="inline-flex items-center gap-1.5 text-caption font-bold uppercase tracking-wider text-plum-voltage">
                   View on GitHub <ArrowUpRight size={14} />
                 </span>
               </motion.a>
@@ -172,7 +172,7 @@ export default function ProjectsContent() {
       </Section>
 
       {/* ════ CTA ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <Reveal>
           <div className="flex flex-wrap items-center justify-between gap-8 rounded-pill border border-white/10 px-8 py-14 md:px-12">
             <div>

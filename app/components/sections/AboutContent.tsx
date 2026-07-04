@@ -114,7 +114,7 @@ export default function AboutContent() {
       </Section>
 
       {/* ════ STORY ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <Reveal><Eyebrow>My Story</Eyebrow></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mb-12 text-heading font-bold text-bone md:text-heading-lg">From curiosity to craft.</h2>
@@ -133,13 +133,13 @@ export default function AboutContent() {
       </Section>
 
       {/* ════ TIMELINE ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <Reveal><Eyebrow color="#ffb829">Experience</Eyebrow></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mb-12 text-heading font-bold text-bone md:text-heading-lg">My professional journey.</h2>
         </Reveal>
         <div className="relative">
-          <div className="absolute bottom-2 left-[7px] top-2 w-px bg-white/10" />
+          <div className="absolute bottom-2 left-1.75 top-2 w-px bg-white/10" />
           <Stagger stagger={0.15}>
             {TIMELINE.map(({ year, role, company, desc, achievements }) => (
               <StaggerItem key={year + role} direction="up" distance={30}>
@@ -177,7 +177,7 @@ export default function AboutContent() {
       </Section>
 
       {/* ════ SKILLS ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <Reveal><Eyebrow>Skills</Eyebrow></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mb-12 text-heading font-bold text-bone md:text-heading-lg">What I&apos;m great at.</h2>
@@ -190,7 +190,7 @@ export default function AboutContent() {
       </Section>
 
       {/* ════ STACK ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <Reveal><Eyebrow>Technology Stack</Eyebrow></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mb-12 text-heading font-bold text-bone md:text-heading-lg">Tools across the stack.</h2>
@@ -213,7 +213,7 @@ export default function AboutContent() {
       </Section>
 
       {/* ════ EDUCATION ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <Reveal><Eyebrow color="#ffb829">Education & Certifications</Eyebrow></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mb-12 text-heading font-bold text-bone md:text-heading-lg">Learning never stops.</h2>

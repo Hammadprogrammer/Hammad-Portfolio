@@ -19,9 +19,9 @@ const SOCIAL = [
 
 export default function Footer() {
   return (
-    <footer className="relative z-1 mt-[60px] border-t border-white/10">
-      <div className="mx-auto max-w-page px-6 py-[60px] md:px-12">
-        <div className="mb-[60px] flex flex-wrap justify-between gap-10">
+    <footer className="relative z-1 mt-section border-t border-white/10">
+      <div className="mx-auto max-w-page px-6 py-section md:px-12">
+        <div className="mb-section flex flex-wrap justify-between gap-10">
           {/* Brand */}
           <div className="max-w-80">
             <Link href="/" className="mb-4 flex items-center gap-3 no-underline" data-cursor-hover>

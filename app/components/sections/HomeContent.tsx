@@ -64,7 +64,7 @@ export default function HomeContent() {
         </h1>
 
         <Reveal immediate delay={0.6}>
-          <p className="mb-5 text-body-sm font-semibold uppercase tracking-[0.05em] text-plum-voltage">
+          <p className="mb-5 text-body-sm font-semibold uppercase tracking-wider text-plum-voltage">
             Full Stack Developer
           </p>
         </Reveal>
@@ -103,7 +103,7 @@ export default function HomeContent() {
       </Section>
 
       {/* ════ TECH STACK ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <Reveal><Eyebrow>Tech Stack</Eyebrow></Reveal>
         <Reveal delay={0.05}>
           <AnimatedText onView as="h2" by="word" text="Technologies & Tools." className="mb-12 block text-heading font-bold text-bone md:text-heading-lg" />
@@ -121,7 +121,7 @@ export default function HomeContent() {
       </Section>
 
       {/* ════ FEATURED PROJECTS ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
           <div>
             <Reveal><Eyebrow>Featured Work</Eyebrow></Reveal>
@@ -153,7 +153,7 @@ export default function HomeContent() {
       </Section>
 
       {/* ════ SERVICES ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <Reveal><Eyebrow>What I offer</Eyebrow></Reveal>
         <Reveal delay={0.05}>
           <h2 className="mb-12 text-heading font-bold text-bone md:text-heading-lg">Full-stack, end to end.</h2>
@@ -172,7 +172,7 @@ export default function HomeContent() {
       </Section>
 
       {/* ════ CTA ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <Reveal>
           <div className="rounded-pill border border-white/10 px-8 py-16 text-center md:px-12 md:py-20">
             <Eyebrow color="#ffb829">Open for work</Eyebrow>

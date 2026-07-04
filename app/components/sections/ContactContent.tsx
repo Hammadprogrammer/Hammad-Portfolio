@@ -41,7 +41,7 @@ const fieldBase =
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <label className="mb-2 block text-caption font-bold uppercase tracking-[0.1em] text-smoke">
+    <label className="mb-2 block text-caption font-bold uppercase tracking-widest text-smoke">
       {children}
     </label>
   );
@@ -83,7 +83,7 @@ export default function ContactContent() {
       </Section>
 
       {/* ════ MAIN GRID ════ */}
-      <Section className="pb-[100px]">
+      <Section className="pb-25">
         <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
           {/* FORM */}
           <Reveal direction="up">
@@ -236,7 +236,7 @@ export default function ContactContent() {
       </Section>
 
       {/* ════ CTA ════ */}
-      <Section className="pb-[120px]">
+      <Section className="pb-30">
         <Reveal>
           <div className="rounded-pill border border-white/10 px-8 py-16 text-center md:px-12">
             <Eyebrow color="#ffb829">Let&apos;s work together</Eyebrow>
