@@ -45,11 +45,11 @@ export default function Nav() {
         }}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 no-underline" data-cursor-hover>
-          <div className="flex h-8 w-8 items-center justify-center rounded-pill bg-plum-voltage text-[13px] font-bold tracking-tight text-white">
-            HZ
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 no-underline" data-cursor-hover>
+          <div className="flex h-8 w-8 flex-none items-center justify-center rounded-pill bg-plum-voltage text-[12px] font-bold tracking-tight text-white">
+            MH
           </div>
-          <div className="leading-tight">
+          <div className="leading-tight whitespace-nowrap">
             <p className="text-body-sm font-bold text-bone">Muhammad Hammad</p>
             <p className="text-[10px] uppercase tracking-[0.1em] text-smoke">Full Stack Developer</p>
           </div>

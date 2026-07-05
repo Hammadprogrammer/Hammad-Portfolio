@@ -87,6 +87,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Ensure Next root doesn't introduce horizontal scroll */
+#__next {
+  overflow-x: hidden;
+}
+
 /* Violet text selection */
 ::selection {
   background: rgba(128, 82, 255, 0.35);
