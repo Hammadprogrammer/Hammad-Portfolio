@@ -280,3 +280,18 @@ html.lenis, html.lenis body { height: auto; }
   .feature-grid, .feature-grid.four { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* Mobile typography scale: make headings and body text smaller for narrow viewports */
+@media (max-width: 420px) {
+  :root {
+    --text-display: 40px;
+    --text-hero: 52px;
+    --text-heading-lg: 30px;
+    --text-heading: 24px;
+    --text-heading-sm: 18px;
+    --text-subheading: 14px;
+    --text-body: 13px;
+    --text-body-sm: 12px;
+    --text-caption: 11px;
+  }
+}
