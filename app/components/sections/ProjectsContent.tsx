@@ -119,7 +119,7 @@ export default function ProjectsContent() {
 
       {/* ════ GRID ════ */}
       <Section className="pb-30">
-        <motion.div layout className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div layout className="gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {visible.map((p, i) => (
               <motion.a
@@ -133,7 +133,7 @@ export default function ProjectsContent() {
                 exit={{ opacity: 0, scale: 0.92 }}
                 transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
                 data-cursor-hover
-                className="card card-hover flex flex-col gap-4 p-8 no-underline"
+                className="card card-hover flex flex-col gap-4 p-8 no-underline min-w-[260px] md:min-w-0"
               >
                 {/* thumbnail */}
                 <div className="flex h-36 items-center justify-center rounded-pill border border-white/10">

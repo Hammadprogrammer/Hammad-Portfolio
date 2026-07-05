@@ -58,7 +58,7 @@ export default function HomeContent() {
           </span>
         </Reveal>
 
-        <h1 className="mb-5 text-display font-bold md:text-hero">
+        <h1 className="mb-5 text-heading-lg font-bold md:text-display lg:text-hero">
           <AnimatedText text="Muhammad" as="span" className="block text-bone" delay={0.1} />
           <AnimatedText text="Hammad" as="span" className="block text-plum-voltage" delay={0.35} />
         </h1>
