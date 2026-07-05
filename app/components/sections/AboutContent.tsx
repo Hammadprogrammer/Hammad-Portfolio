@@ -78,8 +78,8 @@ export default function AboutContent() {
           <div>
             <Reveal immediate><Eyebrow>About Me</Eyebrow></Reveal>
             <h1 className="mb-7 text-display font-bold leading-none">
-              <AnimatedText text="Hammad" as="span" className="block text-bone" delay={0.1} />
-              <AnimatedText text="Zahid." as="span" className="block text-plum-voltage" delay={0.3} />
+              <AnimatedText text="Muhammad" as="span" className="block text-bone" delay={0.1} />
+              <AnimatedText text="Hammad." as="span" className="block text-plum-voltage" delay={0.3} />
             </h1>
             <Reveal immediate delay={0.55}>
               <p className="mb-5 text-subheading text-ash">

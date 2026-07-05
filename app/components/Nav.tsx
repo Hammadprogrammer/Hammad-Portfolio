@@ -49,8 +49,8 @@ export default function Nav() {
           <div className="flex h-8 w-8 items-center justify-center rounded-pill bg-plum-voltage text-[13px] font-bold tracking-tight text-white">
             HZ
           </div>
-          <div className="hidden sm:block leading-tight">
-            <p className="text-body-sm font-bold text-bone">Hammad Zahid</p>
+          <div className="leading-tight">
+            <p className="text-body-sm font-bold text-bone">Muhammad Hammad</p>
             <p className="text-[10px] uppercase tracking-[0.1em] text-smoke">Full Stack Developer</p>
           </div>
         </Link>

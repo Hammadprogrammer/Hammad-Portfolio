@@ -26,8 +26,8 @@ const SITE_URL = "https://muhammad-hammad.dev";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Hammad Zahid — Full Stack Developer",
-    template: "%s — Hammad Zahid",
+    default: "Muhammad Hammad — Full Stack Developer",
+    template: "%s — Muhammad Hammad",
   },
   description:
     "Full Stack Developer specializing in React, Next.js, Node.js, and scalable APIs. Building fast, modern, and immersive web applications.",
@@ -35,19 +35,19 @@ export const metadata: Metadata = {
     "Full Stack Developer", "React", "Next.js", "TypeScript", "Node.js",
     "Web Developer", "Frontend", "Backend", "Portfolio",
   ],
-  authors: [{ name: "Hammad Zahid" }],
-  creator: "Hammad Zahid",
+  authors: [{ name: "Muhammad Hammad" }],
+  creator: "Muhammad Hammad",
   openGraph: {
     type: "website",
     url: SITE_URL,
-    title: "Hammad Zahid — Full Stack Developer",
+    title: "Muhammad Hammad — Full Stack Developer",
     description:
       "Full Stack Developer building fast, scalable web applications with React, Next.js, and Node.js.",
-    siteName: "Hammad Zahid",
+    siteName: "Muhammad Hammad",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hammad Zahid — Full Stack Developer",
+    title: "Muhammad Hammad — Full Stack Developer",
     description: "Full Stack Developer building modern, scalable web applications.",
   },
   robots: { index: true, follow: true },
