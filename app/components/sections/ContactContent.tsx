@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -28,10 +29,10 @@ const INFO = [
 ];
 
 const schema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().min(1, "Email is required").email("Enter a valid email"),
-  subject: z.string().min(1, "Subject is required"),
-  message: z.string().min(10, "Message is too short"),
+  name: z.string().trim().min(2, "Please enter your full name"),
+  email: z.string().trim().min(1, "Email is required").email("Enter a valid email address"),
+  subject: z.string().trim().min(3, "Subject should be at least 3 characters"),
+  message: z.string().trim().min(20, "Please write at least 20 characters"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -54,13 +55,30 @@ export default function ContactContent() {
     reset,
     watch,
     formState: { errors, isSubmitting, isSubmitSuccessful },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<FormData>({ resolver: zodResolver(schema), mode: "onTouched" });
 
   const firstName = (watch("name") || "").split(" ")[0];
+  const [submitError, setSubmitError] = React.useState<string | null>(null);
 
-  const onSubmit = async (_data: FormData) => {
-    // Simulate an async submission (wire to an API route / email service here).
-    await new Promise((r) => setTimeout(r, 900));
+  const onSubmit = async (data: FormData) => {
+    setSubmitError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Failed to send message.");
+      }
+    } catch (error) {
+      console.error(error);
+      setSubmitError(error instanceof Error ? error.message : "Failed to send message.");
+    }
   };
 
   return (
@@ -126,6 +144,7 @@ export default function ContactContent() {
                         <input
                           type="text"
                           placeholder="Enter your name"
+                          autoComplete="name"
                           className={fieldBase}
                           style={{ borderColor: errors.name ? "rgba(255,120,120,0.6)" : "rgba(255,255,255,0.1)" }}
                           {...register("name")}
@@ -137,6 +156,7 @@ export default function ContactContent() {
                         <input
                           type="email"
                           placeholder="Enter your email"
+                          autoComplete="email"
                           className={fieldBase}
                           style={{ borderColor: errors.email ? "rgba(255,120,120,0.6)" : "rgba(255,255,255,0.1)" }}
                           {...register("email")}
@@ -150,6 +170,7 @@ export default function ContactContent() {
                       <input
                         type="text"
                         placeholder="Project inquiry"
+                        autoComplete="off"
                         className={fieldBase}
                         style={{ borderColor: errors.subject ? "rgba(255,120,120,0.6)" : "rgba(255,255,255,0.1)" }}
                         {...register("subject")}
@@ -168,6 +189,13 @@ export default function ContactContent() {
                       />
                       {errors.message && <p className="mt-1.5 text-caption text-red-400">{errors.message.message}</p>}
                     </div>
+
+                    {submitError && (
+                      <div className="flex items-start gap-2 rounded-2xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+                        <Mail size={16} className="mt-0.5 shrink-0" />
+                        <span>{submitError}</span>
+                      </div>
+                    )}
 
                     <Button type="submit" variant="primary" className="w-full" disabled={isSubmitting}>
                       {isSubmitting ? "Sending..." : "Send Message"} <Send size={16} />
